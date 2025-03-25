@@ -4,11 +4,25 @@
     {
         static void Main(string[] args)
         {
-            int n = VerificarNumero();
+            while (true)
+            {
+                int n = VerificarNumero();
 
-            DiamanteDesenho(n);
-            
-            Console.ReadLine();
+                DiamanteDesenho(n);
+
+                Console.ReadLine();
+                Cabecalho();
+
+                Console.Write("Deseja digitar de novo?(S/N): ");
+                if(Console.ReadLine()!.ToUpper() == "S")
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
         static void Cabecalho()
         {
@@ -47,12 +61,12 @@
         }
         static int VerificarNumero()
         {
-            int n;
             while (true)
             {
                 Cabecalho();
                 Console.Write("Digite um numero Impar: ");
-                n = int.Parse(Console.ReadLine()!);
+
+                int n = int.Parse(Console.ReadLine()!);
                 if (n % 2 == 0)
                 {
                     Console.WriteLine("Numero nao pode ser Par");
