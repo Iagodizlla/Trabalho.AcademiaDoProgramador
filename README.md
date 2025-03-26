@@ -1,6 +1,6 @@
 # Trabalho Diamante de X
 
-![]()
+![](https://i.imgur.com/OXz92wj.gif)
 
 ## Introdução
 
