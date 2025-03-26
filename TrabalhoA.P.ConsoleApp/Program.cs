@@ -4,7 +4,6 @@
     {
         public static void Main(string[] args)
         {
-
             string c;
             do
             {
@@ -19,7 +18,7 @@
         static void Cabecalho()
         {
             Console.Clear();
-            Console.WriteLine("-------------------------------");
+            Console.WriteLine("------------------------------");
             Console.WriteLine("|   *              *  *    * |");
             Console.WriteLine("|          *     *   X       |");
             Console.WriteLine("| *     *           XXX      |");
@@ -27,7 +26,7 @@
             Console.WriteLine("|   *            *  XXX    * |");
             Console.WriteLine("| *        *         X       |");
             Console.WriteLine("|   *            *    *   *  |");
-            Console.WriteLine("-------------------------------\n\n");
+            Console.WriteLine("------------------------------\n\n");
         }
         public static string PerguntarNumero()
         {
@@ -37,7 +36,6 @@
             Console.WriteLine("-------------------------------");
             return nu;
         }
-        
         static string DigitarNovamente()
         {
             string c;
