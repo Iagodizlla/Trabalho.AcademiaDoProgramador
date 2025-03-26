@@ -2,86 +2,60 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            while (true)
+
+            string c;
+            do
             {
-                int n = VerificarNumero();
+                int n = Verificadores.VerificarNumero();
 
-                DiamanteDesenho(n);
-
-                Console.ReadLine();
-                Cabecalho();
-
-                Console.Write("Deseja digitar de novo?(S/N): ");
-                if(Console.ReadLine()!.ToUpper() == "S")
-                {
-                    continue;
-                }
-                else
-                {
-                    break;
-                }
-            }
+                DesenharDiamante.DiamanteDesenhar(n);
+                
+                c = DigitarNovamente();
+                
+            } while (c == "S");
         }
         static void Cabecalho()
         {
             Console.Clear();
             Console.WriteLine("-------------------------------");
-            Console.WriteLine("| *     *          *         *|");
-            Console.WriteLine("|      *  DIAMANTE DE X      *|");
-            Console.WriteLine("|   *            *  *       * |");
+            Console.WriteLine("|   *              *  *    * |");
+            Console.WriteLine("|          *     *   X       |");
+            Console.WriteLine("| *     *           XXX      |");
+            Console.WriteLine("|     DIAMANTE DE  XXXXX *  *|");
+            Console.WriteLine("|   *            *  XXX    * |");
+            Console.WriteLine("| *        *         X       |");
+            Console.WriteLine("|   *            *    *   *  |");
             Console.WriteLine("-------------------------------\n\n");
         }
-        static void DiamanteDesenho(int n)
+        public static string PerguntarNumero()
         {
-            int branco = n / 2 + 5, X = 1;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 1; j <= branco; j++)
-                {
-                    Console.Write(" ");
-                }
-                for (int j = 1; j <= X; j++)
-                {
-                    Console.Write("X");
-                }
-                Console.Write("\n");
-                if (i < n / 2)
-                {
-                    branco--;
-                    X += 2;
-                }
-                else
-                {
-                    branco++;
-                    X -= 2;
-                }
-            }
+            Cabecalho();
+            Console.Write("   Digite um número Impar: ");
+            string nu = Console.ReadLine()!;
+            Console.WriteLine("-------------------------------");
+            return nu;
         }
-        static int VerificarNumero()
+        
+        static string DigitarNovamente()
         {
+            string c;
             while (true)
             {
                 Cabecalho();
-                Console.Write("Digite um numero Impar: ");
-
-                int n = int.Parse(Console.ReadLine()!);
-                if (n % 2 == 0)
+                Console.Write("Deseja digitar de novo?(S/N): ");
+                c = Console.ReadLine()!.ToUpper();
+                if(Verificadores.VerificarLetraSeN(c))
                 {
-                    Console.WriteLine("Numero nao pode ser Par");
-                }
-                else if (n < 1)
-                {
-                    Console.WriteLine("Numero nao pode ser negativo");
+                    return c;
                 }
                 else
                 {
-                    return n;
+                    Console.WriteLine("Opçõo Inválida");
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
             }
-            
         }
     }
 }
