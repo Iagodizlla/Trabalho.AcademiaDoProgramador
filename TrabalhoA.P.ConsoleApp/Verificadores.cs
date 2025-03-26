@@ -48,5 +48,23 @@ namespace TrabalhoA.P.ConsoleApp
             }
             return false;
         }
+        public static int RetornarValorBranco(int branco, int i, int n)
+        {
+            if (i < n / 2)
+                branco--;
+            else
+                branco++;
+
+            return branco;
+        }
+        public static int RetornarValorX(int X, int i, int n)
+        {
+            if (i < n / 2)
+                X += 2;
+            else
+                X -= 2;
+
+            return X;
+        }
     }
 }

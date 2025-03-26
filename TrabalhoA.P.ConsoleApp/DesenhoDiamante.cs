@@ -25,16 +25,8 @@ namespace TrabalhoA.P.ConsoleApp
                     Console.Write("X");
                 }
                 Console.Write("\n");
-                if (i < n / 2)
-                {
-                    branco--;
-                    X += 2;
-                }
-                else
-                {
-                    branco++;
-                    X -= 2;
-                }
+                branco = Verificadores.RetornarValorBranco(branco, i, n);
+                X = Verificadores.RetornarValorX(X, i, n);
             }
             Console.ReadLine();
         }
