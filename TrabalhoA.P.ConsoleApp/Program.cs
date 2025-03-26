@@ -2,52 +2,60 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int n;
-            while (true) {
-                Console.Clear();
-                Console.Write("Digite um numero Impar: ");
-                n = int.Parse(Console.ReadLine()!);
 
-                if (n % 2 == 0)
-                {
-                    Console.WriteLine("Numero nao pode ser Par");
-                }
-                else if(n < 1)
-                {
-                    Console.WriteLine("Numero nao pode ser negativo");
-                }
-                else
-                {
-                    break;
-                }
-                Console.ReadLine();
-            }
-            int branco = n / 2 + 5, X = 1;
-            for (int i = 0; i < n; i++)
+            string c;
+            do
             {
-                for (int j = 0; j < branco;j++)
+                int n = Verificadores.VerificarNumero();
+
+                DesenharDiamante.DiamanteDesenhar(n);
+                
+                c = DigitarNovamente();
+                
+            } while (c == "S");
+        }
+        static void Cabecalho()
+        {
+            Console.Clear();
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("|   *              *  *    * |");
+            Console.WriteLine("|          *     *   X       |");
+            Console.WriteLine("| *     *           XXX      |");
+            Console.WriteLine("|     DIAMANTE DE  XXXXX *  *|");
+            Console.WriteLine("|   *            *  XXX    * |");
+            Console.WriteLine("| *        *         X       |");
+            Console.WriteLine("|   *            *    *   *  |");
+            Console.WriteLine("-------------------------------\n\n");
+        }
+        public static string PerguntarNumero()
+        {
+            Cabecalho();
+            Console.Write("   Digite um número Impar: ");
+            string nu = Console.ReadLine()!;
+            Console.WriteLine("-------------------------------");
+            return nu;
+        }
+        
+        static string DigitarNovamente()
+        {
+            string c;
+            while (true)
+            {
+                Cabecalho();
+                Console.Write("Deseja digitar de novo?(S/N): ");
+                c = Console.ReadLine()!.ToUpper();
+                if(Verificadores.VerificarLetraSeN(c))
                 {
-                    Console.Write(" ");
-                }
-                for(int j = 0; j < X;j++)
-                {
-                    Console.Write("X");
-                }
-                Console.Write("\n");
-                if (i < n / 2)
-                {
-                    branco--;
-                    X+=2;
+                    return c;
                 }
                 else
                 {
-                    branco++;
-                    X-=2;
+                    Console.WriteLine("Opçõo Inválida");
+                    Console.ReadLine();
                 }
             }
-            Console.ReadLine();
         }
     }
 }
