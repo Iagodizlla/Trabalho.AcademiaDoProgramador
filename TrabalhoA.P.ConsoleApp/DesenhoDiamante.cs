@@ -25,7 +25,7 @@ namespace TrabalhoA.P.ConsoleApp
                     Console.Write("X");
                 }
                 Console.Write("\n");
-                branco = Verificadores.RetornarValorBraco(branco, i, n);
+                branco = Verificadores.RetornarValorBranco(branco, i, n);
                 X = Verificadores.RetornarValorX(X, i, n);
             }
             Console.ReadLine();
